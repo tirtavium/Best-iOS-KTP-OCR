@@ -1,0 +1,6 @@
+use_frameworks!
+target 'Best-iOS-KTP-OCR_Tests' do
+  pod 'Best-iOS-KTP-OCR', :path => '../'
+  
+  
+end
