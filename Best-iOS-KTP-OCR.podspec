@@ -5,7 +5,6 @@
 # Any lines starting with a # are optional, but their use is encouraged
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
-DEPLOYMENT_TARGET_IOS = '13'
 Pod::Spec.new do |s|
   s.name             = 'Best-iOS-KTP-OCR'
   s.version          = '1.0.0'
@@ -27,11 +26,15 @@ this OCR framework use for Indonesia Identity Card, with only 6MB (2MB for real 
   s.source           = { :git => 'https://github.com/tirtavium/Best-iOS-KTP-OCR.git', :tag => s.version.to_s }
   s.social_media_url = 'https://medium.com/@tirtavium'
 
+   
+  s.platform = :ios, '13.0'
   s.ios.deployment_target = '13.0'
-  
-  s.platform     = :ios
   s.framework  = "UIKit"
   s.ios.vendored_frameworks = "OCRforEKTP.xcframework"
+  s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+ }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end  
   # s.resource_bundles = {
